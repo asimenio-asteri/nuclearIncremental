@@ -1,0 +1,8 @@
+.cell {
+  border: 2px solid grey;
+  width: 32px;
+  height: 32px;
+}
+.col {
+  float: left;
+}
