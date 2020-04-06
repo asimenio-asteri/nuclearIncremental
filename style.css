@@ -16,3 +16,18 @@
 .tabShop {
   display: none;
 }
+.progress {
+  height: 32px;
+  border-radius: 8px;
+}
+#nums {
+  width: 300px;
+}
+#heat {
+  background-color: red;
+  width: 0%;
+}
+#power {
+  background-color: lightblue;
+  width: 0%;
+}

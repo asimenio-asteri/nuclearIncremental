@@ -5,22 +5,31 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="shop">
-      <button onclick="openTab('cells')">Open Cells</button>
-      <button onclick="openTab('cool')">Open Cool</button>
-      <button onclick="openTab('exotic')">Open Exotic</button>
-      <button onclick="openTab('other')">Open Other</button>
-      <div id="cells" class="tabShop">
-        <p>This is still in development. Come back later to check for updates!</p>
+    <div id="left">
+      <div id="nums">
+        <p id="money">0$</p>
+        <div id="heat" class="progress"></div>
+        <button>Remove Heat (but you can't)</button>
+        <div id="power" class="progress"></div>
+        <button id="powerBtn" onclick="powerButton()">Pick up some coins</button>
       </div>
-      <div id="cool" class="tabShop">
-        <p>You're too cool for coolant.</p>
-      </div>
-      <div id="exotic" class="tabShop">
-        <p>This is where you'd find exotic cells, but the seller didn't give you any yet...</p>
-      </div>
-      <div id="other" class="tabShop">
-        <p>This is the fabled 4th tab. There's nothing here yet...</p>
+      <div id="shop">
+        <button onclick="openTab('cells')">Open Cells</button>
+        <button onclick="openTab('cool')">Open Cool</button>
+        <button onclick="openTab('exotic')">Open Exotic</button>
+        <button onclick="openTab('other')">Open Other</button>
+        <div id="cells" class="tabShop">
+          <p>This is still in development. Come back later to check for updates!</p>
+        </div>
+        <div id="cool" class="tabShop">
+          <p>You're too cool for coolant.</p>
+        </div>
+        <div id="exotic" class="tabShop">
+          <p>This is where you'd find exotic cells, but the seller didn't give you any yet...</p>
+        </div>
+        <div id="other" class="tabShop">
+          <p>This is the fabled 4th tab. There's nothing here yet...</p>
+        </div>
       </div>
     </div>
     <div id="map">
