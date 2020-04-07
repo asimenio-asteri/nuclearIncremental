@@ -15,6 +15,9 @@ var pctRad;
 var selectCell = "";
 setInterval(update, 10);
 setInterval(updateSec, 1000);
+function placeComp(id) {
+  get(id).innerHTML = `<img src="${selectCell}" />`;
+}
 function powerButton() {
   if (currentCash < 10) {
     currentCash++;
