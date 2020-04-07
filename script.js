@@ -6,20 +6,37 @@ var maxHeat = 1000;
 var maxPower = 1000;
 var maxRad = 100;
 var powerSec = 0;
-var heatSec = 0;
+var powerSell = 1;
+var heatSec = -1;
 var radSec = 0;
 var mapCells = 256;
+var cellLive = false;
 var pctPower;
 var pctHeat;
 var pctRad;
 var selectCell = "";
+var map = {
+  
+};
 setInterval(update, 10);
 setInterval(updateSec, 1000);
 function placeComp(id) {
-  get(id).innerHTML = `<img src="${selectCell}" />`;
+  if (selectCell == "hydrogen.png" && currentCash >= 10) {
+    currentCash -= 10;
+    powerSec += 1;
+    heatSec += 2;
+    get(id).innerHTML = `<img src="${selectCell}" />`;
+  } else if (selectCell == "dual_hydrogen.png" && currentCash >= 20) {
+    currentCash -= 20;
+    get(id).innerHTML = `<img src="${selectCell}" />`;
+  } else if (selectCell == "quad_hydrogen.png" && currentCash >= 30) {
+    currentCash -= 30;
+    get(id).innerHTML = `<img src="${selectCell}" />`;
+  }
+  cellLive = true;
 }
 function powerButton() {
-  if (currentCash < 10) {
+  if (currentCash < 10 && !cellLive) {
     currentCash++;
     if (currentCash >= 10) {
       get("powerBtn").innerHTML = "Sell all power";
@@ -51,8 +68,19 @@ function update() {
 }
 function updateSec() {
   currentPower += powerSec;
+  currentPower -= powerSell;
+  currentCash += powerSell;
   currentHeat += heatSec;
   currentRad += radSec;
+  if (currentPower < 0) {
+    currentPower = 0;
+  }
+  if (currentHeat < 0) {
+    currentHeat = 0;
+  }
+  if (currentRad < 0) {
+    currentRad = 0;
+  }
 }
 function openTab(pageName) {
   var i, tabcontent;
@@ -64,4 +92,18 @@ function openTab(pageName) {
 }
 function get(id) {
   return document.getElementById(id);
+}
+function aaa() {
+  let a = "";
+  let b = "";
+  for (i = 1; i <= 256; i++) {
+    b = `  ${i}: {
+    comp: "",
+    heat: 0,
+    ticksLeft: -1
+  },
+`;
+    a = a.concat(b);
+  }
+  console.log(a);
 }
