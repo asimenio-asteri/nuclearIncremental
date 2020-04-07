@@ -9,7 +9,7 @@
       <div id="nums">
         <p id="money">0$</p>
         <div id="heat" class="progress"></div>
-        <button>Remove Heat (but you can't)</button>
+        <button id="heatBtn" onclick="heatButton()">Remove Heat (- 1)</button>
         <div id="power" class="progress"></div>
         <button id="powerBtn" onclick="powerButton()">Pick up some coins</button>
       </div>
@@ -19,7 +19,10 @@
         <button onclick="openTab('exotic')">Open Exotic</button>
         <button onclick="openTab('other')">Open Other</button>
         <div id="cells" class="tabShop">
-          <p>This is still in development. Come back later to check for updates!</p>
+          <img src="hydrogen.png" onclick="selectCell = 'hydrogen'"/>
+          <img src="dual_hydrogen.png" onclick="selectCell = 'dualHydrogen'" />
+          <img src="quad_hydrogen.png" onclick="selectCell = 'quadHydrogen'" />
+          <hr />
         </div>
         <div id="cool" class="tabShop">
           <p>You're too cool for coolant.</p>
@@ -34,292 +37,292 @@
     </div>
     <div id="map">
       <div id="col1" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="1"></div>
+        <div class="cell" id="2"></div>
+        <div class="cell" id="3"></div>
+        <div class="cell" id="4"></div>
+        <div class="cell" id="5"></div>
+        <div class="cell" id="6"></div>
+        <div class="cell" id="7"></div>
+        <div class="cell" id="8"></div>
+        <div class="cell" id="9"></div>
+        <div class="cell" id="10"></div>
+        <div class="cell" id="11"></div>
+        <div class="cell" id="12"></div>
+        <div class="cell" id="13"></div>
+        <div class="cell" id="14"></div>
+        <div class="cell" id="15"></div>
+        <div class="cell" id="16"></div>
       </div>
       <div id="col2" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="17"></div>
+        <div class="cell" id="18"></div>
+        <div class="cell" id="19"></div>
+        <div class="cell" id="20"></div>
+        <div class="cell" id="21"></div>
+        <div class="cell" id="22"></div>
+        <div class="cell" id="23"></div>
+        <div class="cell" id="24"></div>
+        <div class="cell" id="25"></div>
+        <div class="cell" id="26"></div>
+        <div class="cell" id="27"></div>
+        <div class="cell" id="28"></div>
+        <div class="cell" id="29"></div>
+        <div class="cell" id="30"></div>
+        <div class="cell" id="31"></div>
+        <div class="cell" id="32"></div>
       </div>
       <div id="col3" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="33"></div>
+        <div class="cell" id="34"></div>
+        <div class="cell" id="35"></div>
+        <div class="cell" id="36"></div>
+        <div class="cell" id="37"></div>
+        <div class="cell" id="38"></div>
+        <div class="cell" id="39"></div>
+        <div class="cell" id="40"></div>
+        <div class="cell" id="41"></div>
+        <div class="cell" id="42"></div>
+        <div class="cell" id="43"></div>
+        <div class="cell" id="44"></div>
+        <div class="cell" id="45"></div>
+        <div class="cell" id="46"></div>
+        <div class="cell" id="47"></div>
+        <div class="cell" id="48"></div>
       </div>
       <div id="col4" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="49"></div>
+        <div class="cell" id="50"></div>
+        <div class="cell" id="51"></div>
+        <div class="cell" id="52"></div>
+        <div class="cell" id="53"></div>
+        <div class="cell" id="54"></div>
+        <div class="cell" id="55"></div>
+        <div class="cell" id="56"></div>
+        <div class="cell" id="57"></div>
+        <div class="cell" id="58"></div>
+        <div class="cell" id="59"></div>
+        <div class="cell" id="60"></div>
+        <div class="cell" id="61"></div>
+        <div class="cell" id="62"></div>
+        <div class="cell" id="63"></div>
+        <div class="cell" id="64"></div>
       </div>
       <div id="col5" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="65"></div>
+        <div class="cell" id="66"></div>
+        <div class="cell" id="67"></div>
+        <div class="cell" id="68"></div>
+        <div class="cell" id="69"></div>
+        <div class="cell" id="70"></div>
+        <div class="cell" id="71"></div>
+        <div class="cell" id="72"></div>
+        <div class="cell" id="73"></div>
+        <div class="cell" id="74"></div>
+        <div class="cell" id="75"></div>
+        <div class="cell" id="76"></div>
+        <div class="cell" id="77"></div>
+        <div class="cell" id="78"></div>
+        <div class="cell" id="79"></div>
+        <div class="cell" id="80"></div>
       </div>
       <div id="col6" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="81"></div>
+        <div class="cell" id="82"></div>
+        <div class="cell" id="83"></div>
+        <div class="cell" id="84"></div>
+        <div class="cell" id="85"></div>
+        <div class="cell" id="86"></div>
+        <div class="cell" id="87"></div>
+        <div class="cell" id="88"></div>
+        <div class="cell" id="89"></div>
+        <div class="cell" id="90"></div>
+        <div class="cell" id="91"></div>
+        <div class="cell" id="92"></div>
+        <div class="cell" id="93"></div>
+        <div class="cell" id="94"></div>
+        <div class="cell" id="95"></div>
+        <div class="cell" id="96"></div>
       </div>
       <div id="col7" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="97"></div>
+        <div class="cell" id="98"></div>
+        <div class="cell" id="99"></div>
+        <div class="cell" id="100"></div>
+        <div class="cell" id="101"></div>
+        <div class="cell" id="102"></div>
+        <div class="cell" id="103"></div>
+        <div class="cell" id="104"></div>
+        <div class="cell" id="105"></div>
+        <div class="cell" id="106"></div>
+        <div class="cell" id="107"></div>
+        <div class="cell" id="108"></div>
+        <div class="cell" id="109"></div>
+        <div class="cell" id="110"></div>
+        <div class="cell" id="111"></div>
+        <div class="cell" id="112"></div>
       </div>
       <div id="col8" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="113"></div>
+        <div class="cell" id="114"></div>
+        <div class="cell" id="115"></div>
+        <div class="cell" id="116"></div>
+        <div class="cell" id="117"></div>
+        <div class="cell" id="118"></div>
+        <div class="cell" id="119"></div>
+        <div class="cell" id="120"></div>
+        <div class="cell" id="121"></div>
+        <div class="cell" id="122"></div>
+        <div class="cell" id="123"></div>
+        <div class="cell" id="124"></div>
+        <div class="cell" id="125"></div>
+        <div class="cell" id="126"></div>
+        <div class="cell" id="127"></div>
+        <div class="cell" id="128"></div>
       </div>
       <div id="col9" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="129"></div>
+        <div class="cell" id="130"></div>
+        <div class="cell" id="131"></div>
+        <div class="cell" id="132"></div>
+        <div class="cell" id="133"></div>
+        <div class="cell" id="134"></div>
+        <div class="cell" id="135"></div>
+        <div class="cell" id="136"></div>
+        <div class="cell" id="137"></div>
+        <div class="cell" id="138"></div>
+        <div class="cell" id="139"></div>
+        <div class="cell" id="140"></div>
+        <div class="cell" id="141"></div>
+        <div class="cell" id="142"></div>
+        <div class="cell" id="143"></div>
+        <div class="cell" id="144"></div>
       </div>
       <div id="col10" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="145"></div>
+        <div class="cell" id="146"></div>
+        <div class="cell" id="147"></div>
+        <div class="cell" id="148"></div>
+        <div class="cell" id="149"></div>
+        <div class="cell" id="150"></div>
+        <div class="cell" id="151"></div>
+        <div class="cell" id="152"></div>
+        <div class="cell" id="153"></div>
+        <div class="cell" id="154"></div>
+        <div class="cell" id="155"></div>
+        <div class="cell" id="156"></div>
+        <div class="cell" id="157"></div>
+        <div class="cell" id="158"></div>
+        <div class="cell" id="159"></div>
+        <div class="cell" id="160"></div>
       </div>
       <div id="col11" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="161"></div>
+        <div class="cell" id="162"></div>
+        <div class="cell" id="163"></div>
+        <div class="cell" id="164"></div>
+        <div class="cell" id="165"></div>
+        <div class="cell" id="166"></div>
+        <div class="cell" id="167"></div>
+        <div class="cell" id="168"></div>
+        <div class="cell" id="169"></div>
+        <div class="cell" id="170"></div>
+        <div class="cell" id="171"></div>
+        <div class="cell" id="172"></div>
+        <div class="cell" id="173"></div>
+        <div class="cell" id="174"></div>
+        <div class="cell" id="175"></div>
+        <div class="cell" id="176"></div>
       </div>
       <div id="col12" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="177"></div>
+        <div class="cell" id="178"></div>
+        <div class="cell" id="179"></div>
+        <div class="cell" id="180"></div>
+        <div class="cell" id="181"></div>
+        <div class="cell" id="182"></div>
+        <div class="cell" id="183"></div>
+        <div class="cell" id="184"></div>
+        <div class="cell" id="185"></div>
+        <div class="cell" id="186"></div>
+        <div class="cell" id="187"></div>
+        <div class="cell" id="188"></div>
+        <div class="cell" id="189"></div>
+        <div class="cell" id="190"></div>
+        <div class="cell" id="191"></div>
+        <div class="cell" id="192"></div>
       </div>
       <div id="col13" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="193"></div>
+        <div class="cell" id="194"></div>
+        <div class="cell" id="195"></div>
+        <div class="cell" id="196"></div>
+        <div class="cell" id="197"></div>
+        <div class="cell" id="198"></div>
+        <div class="cell" id="199"></div>
+        <div class="cell" id="200"></div>
+        <div class="cell" id="201"></div>
+        <div class="cell" id="202"></div>
+        <div class="cell" id="203"></div>
+        <div class="cell" id="204"></div>
+        <div class="cell" id="205"></div>
+        <div class="cell" id="206"></div>
+        <div class="cell" id="207"></div>
+        <div class="cell" id="208"></div>
       </div>
       <div id="col14" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="209"></div>
+        <div class="cell" id="210"></div>
+        <div class="cell" id="211"></div>
+        <div class="cell" id="212"></div>
+        <div class="cell" id="213"></div>
+        <div class="cell" id="214"></div>
+        <div class="cell" id="215"></div>
+        <div class="cell" id="216"></div>
+        <div class="cell" id="217"></div>
+        <div class="cell" id="218"></div>
+        <div class="cell" id="219"></div>
+        <div class="cell" id="220"></div>
+        <div class="cell" id="221"></div>
+        <div class="cell" id="222"></div>
+        <div class="cell" id="223"></div>
+        <div class="cell" id="224"></div>
       </div>
       <div id="col15" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="225"></div>
+        <div class="cell" id="226"></div>
+        <div class="cell" id="227"></div>
+        <div class="cell" id="228"></div>
+        <div class="cell" id="229"></div>
+        <div class="cell" id="230"></div>
+        <div class="cell" id="231"></div>
+        <div class="cell" id="232"></div>
+        <div class="cell" id="233"></div>
+        <div class="cell" id="234"></div>
+        <div class="cell" id="235"></div>
+        <div class="cell" id="236"></div>
+        <div class="cell" id="237"></div>
+        <div class="cell" id="238"></div>
+        <div class="cell" id="239"></div>
+        <div class="cell" id="240"></div>
       </div>
       <div id="col16" class="col">
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
-        <div class="cell"></div>
+        <div class="cell" id="241"></div>
+        <div class="cell" id="242"></div>
+        <div class="cell" id="243"></div>
+        <div class="cell" id="244"></div>
+        <div class="cell" id="245"></div>
+        <div class="cell" id="246"></div>
+        <div class="cell" id="247"></div>
+        <div class="cell" id="248"></div>
+        <div class="cell" id="249"></div>
+        <div class="cell" id="250"></div>
+        <div class="cell" id="251"></div>
+        <div class="cell" id="252"></div>
+        <div class="cell" id="253"></div>
+        <div class="cell" id="254"></div>
+        <div class="cell" id="255"></div>
+        <div class="cell" id="256"></div>
       </div>
     </div>
   </body>
