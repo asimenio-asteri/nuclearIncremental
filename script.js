@@ -35,6 +35,9 @@ function placeComp(id) {
   }
   cellLive = true;
 }
+function sellComp(id) {
+  // ^ implement selling components
+}
 function powerButton() {
   if (currentCash < 10 && !cellLive) {
     currentCash++;
@@ -67,9 +70,11 @@ function update() {
   get("money").innerHTML = currentCash + "$"; 
 }
 function updateSec() {
+  if (currentPower + powerSec - powerSell >= 0) {
+    currentPower -= powerSell;
+    currentCash += powerSell;
+  }
   currentPower += powerSec;
-  currentPower -= powerSell;
-  currentCash += powerSell;
   currentHeat += heatSec;
   currentRad += radSec;
   if (currentPower < 0) {
