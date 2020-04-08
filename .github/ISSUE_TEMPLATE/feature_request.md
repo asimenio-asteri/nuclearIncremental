@@ -18,4 +18,4 @@ Please create a checklist of everything we should do here, ex.
     - [ ] Make it increase death rates worldwide
 
 **Additional context**
-For example, if you would like a different icon for something, you could put it here, like (this)[butTheLinkGoesHere]
+For example, if you would like a different icon for something, you could put it here, like [this](butTheLinkGoesHere)
