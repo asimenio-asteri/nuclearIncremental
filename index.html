@@ -19,13 +19,14 @@
         <button onclick="openTab('exotic')">Open Exotic</button>
         <button onclick="openTab('other')">Open Other</button>
         <div id="cells" class="tabShop">
-          <img src="img/bighydrogen.png" onclick="selectCell = 'hydrogen.png'"/>
-          <img src="img/bigdualhydrogen.png" onclick="selectCell = 'dual_hydrogen.png'" />
-          <img src="img/bigquadhydrogen.png" onclick="selectCell = 'quad_hydrogen.png'" />
+          <img src="img/bighydrogen.png" onclick="selectCell = 'hydrogen.png'" id="hydrogen.png" />
+          <img src="img/bigdualhydrogen.png" onclick="selectCell = 'dual_hydrogen.png'" id="dual_hydrogen.png" />
+          <img src="img/bigquadhydrogen.png" onclick="selectCell = 'quad_hydrogen.png'" id="quad_hydrogen.png" />
           <hr />
         </div>
         <div id="cool" class="tabShop">
-          <p>You're too cool for coolant.</p>
+          <img src="img/bigfan.png" onclick="selectCell = 'fan.png'" />
+          <hr />
         </div>
         <div id="exotic" class="tabShop">
           <p>This is where you'd find exotic cells, but the seller didn't give you any yet...</p>

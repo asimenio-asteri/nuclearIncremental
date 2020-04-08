@@ -1562,20 +1562,34 @@ function placeComp(id) {
   if (!occ) {
     if (selectCell == "hydrogen.png" && currentCash >= 10) {
       currentCash -= 10;
-      powerSec += 1;
+      powerSec++;
       heatSec += 2;
       map[mapKey].comp = "sH";
       map[mapKey].ticksLeft = 10;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     } else if (selectCell == "dual_hydrogen.png" && currentCash >= 20) {
       currentCash -= 20;
+      powerSec += 2;
+      heatSec += 4;
       map[mapKey].comp = "dH";
       map[mapKey].ticksLeft = 250;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     } else if (selectCell == "quad_hydrogen.png" && currentCash >= 30) {
       currentCash -= 30;
+      powerSec += 8;
+      heatSec += 16;
       map[mapKey].comp = "qH";
       map[mapKey].ticksLeft = 100;
+      get(id).innerHTML = `<img src="${selectCell}" />`;
+    } else if (selectCell == "fan.png" && currentCash >= 50) {
+      currentCash -= 50;
+      map[mapKey].comp = "bF";
+      map[mapKey].ticksLeft = -1;
+      get(id).innerHTML = `<img src="${selectCell}" />`;
+    } else if (selectCell == "outlet.png" && currentCash >= 75) {
+      currentCash -= 75;
+      map[mapKey].comp = "bO";
+      map[mapKey].ticksLeft = -1;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     }
   cellLive = true;
@@ -1617,11 +1631,22 @@ function update() {
   pctPower = (currentPower/maxPower) * 100;
   pctHeat = (currentHeat/maxHeat) * 100;
   pctRad = (currentRad/maxRad) * 100;
-  get("power").style.width = pctPower + "%";
+  if (pctPower <= 100) {
+    get("power").style.width = pctPower + "%";
+  } else {
+    get("power").style.width = "100%";
+  }
   get("power").innerHTML = currentPower + "/" + maxPower;
-  get("heat").style.width = pctHeat + "%";
+  if (pctHeat <= 100) {
+    get("heat").style.width = pctHeat + "%";
+  } else {
+    get("heat").style.width = "100%";
+  }
   get("heat").innerHTML = currentHeat + "/" + maxHeat;
-  get("money").innerHTML = currentCash + "$"; 
+  get("money").innerHTML = currentCash + "$";
+  if (selectCell) {
+    get(selectCell).src = "select/green" + selectCell;
+  }
 }
 function updateSec() {
   if (currentPower + powerSec - powerSell >= 0) {
