@@ -1810,7 +1810,7 @@ var map = {
   }
 };
 setInterval(update, 10);
-setInterval(updateMap, 100);
+setInterval(updateMap, 1000);
 setInterval(updateSec, 1000);
 function placeComp(id) {
   let mapKey = `_${id}`;
@@ -1823,7 +1823,7 @@ function placeComp(id) {
       map[mapKey].comp = "sH";
       map[mapKey].power = 1;
       map[mapKey].heat = 2;
-      map[mapKey].ticksLeft = 10;
+      map[mapKey].ticksLeft = 15;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     } else if (selectCell == "dual_hydrogen.png" && currentCash >= 20) {
       currentCash -= 20;
@@ -1832,7 +1832,7 @@ function placeComp(id) {
       map[mapKey].comp = "dH";
       map[mapKey].power = 2;
       map[mapKey].heat = 4;
-      map[mapKey].ticksLeft = 250;
+      map[mapKey].ticksLeft = 25;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     } else if (selectCell == "quad_hydrogen.png" && currentCash >= 30) {
       currentCash -= 30;
@@ -1932,7 +1932,23 @@ function updateSec() {
   }
 }
 function updateMap() {
-
+  for (var cell in map) {
+    let cellId = cell.replace(/_/g, "");
+    let keyed = map[cell];
+    if (keyed.ticksLeft > -1) {
+      keyed.ticksLeft -= 1;
+    }
+    if (keyed.ticksLeft == -1) {
+      keyed.comp = "";
+      powerSec -= keyed.power;
+      keyed.power = 0;
+      heatSec -= keyed.heat;
+      keyed.heat = 0;
+      keyed.ticksLeft = -1;
+      keyed.sellVal = 0;
+      get(cellId).innerHTML = "";
+    }
+  }
 }
 function openTab(pageName) {
   var i, tabcontent;
