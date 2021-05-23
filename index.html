@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head lang="en">
     <link rel="stylesheet" href="style.css" />
     <script src="script.js"></script>
+    <meta charset="utf-8" />
   </head>
   <body>
     <div id="left">
@@ -19,13 +20,13 @@
         <button onclick="openTab('exotic')">Open Exotic</button>
         <button onclick="openTab('other')">Open Other</button>
         <div id="cells" class="tabShop">
-          <img src="img/bighydrogen.png" onclick="selectCell = 'hydrogen.png'" id="hydrogen.png" />
-          <img src="img/bigdualhydrogen.png" onclick="selectCell = 'dual_hydrogen.png'" id="dual_hydrogen.png" />
-          <img src="img/bigquadhydrogen.png" onclick="selectCell = 'quad_hydrogen.png'" id="quad_hydrogen.png" />
+          <img src="img/bighydrogen.png" onclick="select('hydrogen.png')" id="hydrogen.png" />
+          <img src="img/bigdualhydrogen.png" onclick="select('dualhydrogen.png')" id="dualhydrogen.png" />
+          <img src="img/bigquadhydrogen.png" onclick="select('quadhydrogen.png')" id="quadhydrogen.png" />
           <hr />
         </div>
         <div id="cool" class="tabShop">
-          <img src="img/bigfan.png" onclick="selectCell = 'fan.png'" />
+          <img src="img/bigfan.png" onclick="select('fan.png')" />
           <hr />
         </div>
         <div id="exotic" class="tabShop">
