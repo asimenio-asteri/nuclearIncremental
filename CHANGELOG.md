@@ -18,4 +18,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - The names of the image files to fix the shop-selection-color function
 
 ### Removed
-- 
+- The long list for the cell map
