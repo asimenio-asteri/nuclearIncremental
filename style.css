@@ -34,3 +34,6 @@
   background-color: lightblue;
   width: 0%;
 }
+body, button {
+  font-family: monospace;
+}

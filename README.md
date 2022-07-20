@@ -13,4 +13,3 @@ A single hydrogen cell will cost 10 money and give you 15 money.
 Main Developer: DaveRainbowin
 Artist: DaveRainbowin
 ???: SilverHydra6078
-3D Artist: PowerOne

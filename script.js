@@ -1,5 +1,5 @@
-var currentHeat = 0;
 var currentCash = 0;
+var currentHeat = 0;
 var currentRad = 0;
 var currentPower = 0;
 var maxHeat = 1000;
@@ -16,35 +16,16 @@ var pctHeat;
 var pctRad;
 var selectCell = "";
 var map = {};
-var typesImg = ["hydrogen.png", "dualhydrogen.png", "quadhydrogen.png"];
-function init() {
-  for (x = 1; x <= 256; x++) {
-    map[`_${x}`] = {
-      comp: "",
-      compType: "",
-      power: 0,
-      heat: 0,
-      ticksLeft: -1,
-      sellVal: 0
-    };
-  }
-}
-init();
+var typesImg = ["hydrogen.png", "dualhydrogen.png", "quadhydrogen.png", "fan.png"];
 setInterval(update, 10);
 setInterval(updateMap, 1000);
 setInterval(updateSec, 1000);
 function select(id) {
-  try {
-    selectCell = id;
-    get(selectCell).src =`select/green${id}`;
-    for (x = 0; x <= typesImg.length; x++) {
-      if (id != typesImg[x]) {
-        get(typesImg[x]).src = `img/big${typesImg[x]}`;
-      }
-    }
-  } catch (error) {
-    console.error("selected cell has no green version");
+  selectCell = id;
+  for (i = 0; i < typesImg.length; i++) {
+    get(typesImg[i]).src = `img/big${typesImg[i]}`;
   }
+  get(id).src = `select/green${id}`;
 }
 function placeComp(id) {
   let mapKey = `_${id}`;
@@ -54,42 +35,42 @@ function placeComp(id) {
       currentCash -= 10;
       powerSec++;
       heatSec += 2;
-      map[mapKey].comp = "sH";
+      map[mapKey].comp = selectCell;
       map[mapKey].compType = "cell";
       map[mapKey].power = 1;
       map[mapKey].heat = 2;
       map[mapKey].ticksLeft = 15;
       get(id).innerHTML = `<img src="${selectCell}" />`;
-    } else if (selectCell == "dual_hydrogen.png" && currentCash >= 20) {
+    } else if (selectCell == "dualhydrogen.png" && currentCash >= 20) {
       currentCash -= 20;
       powerSec += 2;
       heatSec += 4;
-      map[mapKey].comp = "dH";
-      map[mapKey].comp = "cell";
+      map[mapKey].comp = selectCell;
+      map[mapKey].compType = "cell";
       map[mapKey].power = 2;
       map[mapKey].heat = 4;
       map[mapKey].ticksLeft = 25;
       get(id).innerHTML = `<img src="${selectCell}" />`;
-    } else if (selectCell == "quad_hydrogen.png" && currentCash >= 30) {
+    } else if (selectCell == "quadhydrogen.png" && currentCash >= 30) {
       currentCash -= 30;
       powerSec += 8;
       heatSec += 16;
-      map[mapKey].comp = "qH";
-      map[mapKey].comp = "cell";
+      map[mapKey].comp = selectCell;
+      map[mapKey].compType = "cell";
       map[mapKey].power = 8;
       map[mapKey].heat = 16;
       map[mapKey].ticksLeft = 100;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     } else if (selectCell == "fan.png" && currentCash >= 50) {
       currentCash -= 50;
-      map[mapKey].comp = "bF";
-      map[mapKey].comp = "cool";
+      map[mapKey].comp = selectCell;
+      map[mapKey].compType = "cool";
       map[mapKey].ticksLeft = -1;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     } else if (selectCell == "outlet.png" && currentCash >= 75) {
       currentCash -= 75;
-      map[mapKey].comp = "bO";
-      map[mapKey].comp = "outlet";
+      map[mapKey].comp = selectCell;
+      map[mapKey].compType = "outlet";
       map[mapKey].ticksLeft = -1;
       get(id).innerHTML = `<img src="${selectCell}" />`;
     }
@@ -202,3 +183,67 @@ function openTab(pageName) {
 function get(id) {
   return document.getElementById(id);
 }
+var saveList = ["map", "currentCash", "currentHeat", "currentRad", "currentPower", "cellLive", "visitedBefore", "heatSec", "powerSec", "radSec"];
+var visitedBefore = false;
+var saveload = {
+  save: function() {
+    saveList.forEach(x => localStorage.setItem(x, JSON.stringify(window[x])));
+  },
+  load: function() {
+    visitedBefore = JSON.parse(localStorage.getItem('visitedBefore'));
+    if (visitedBefore == null || visitedBefore == undefined) {
+      visitedBefore = false;
+    }
+    if (visitedBefore) {
+      for (x = 0; x < saveList.length; x++) {
+        window[saveList[x]] = JSON.parse(localStorage.getItem(saveList[x]));
+        if (window[saveList[x]] == undefined) { window[saveList[x]] = defaultList[x]; }
+      }
+    }
+  }
+};
+function init() {
+  saveload.load();
+  visitedBefore = true;
+}
+function init() {
+  saveload.load();
+  if (!visitedBefore) {
+    for (i = 1; i <= 256; i++) {
+      map[`_${i}`] = {
+        comp: "",
+        compType: "",
+        power: 0,
+        heat: 0,
+        ticksLeft: -1,
+        sellVal: 0
+      };
+    }
+  } else {
+    for (i = 1; i <= 256; i++) {
+      let cell = map[`_${i}`].comp;
+      if (cell != "") {
+        console.log(cell);
+        console.log(i);
+        console.log(get("1"));
+        get(i).innerHTML = `<img src="${cell}" />`;
+      }
+    }
+  }
+  let counter = 1;
+  for (i = 1; i <= 16; i++) {
+    for (j = counter; j <= 256; j++) {
+      // do the stuff. make it appendChild or whatever
+    }
+    counter = j;
+  }
+  visitedBefore = true;
+  console.log(get("1"));
+  console.log(get("1"));
+  console.log(get("1"));
+  console.log(get("1"));
+  console.log(get("1"));
+}
+console.log(get("1"));
+setTimeout(init,1000);
+var autoInterval = setInterval(saveload.save, 5000);
