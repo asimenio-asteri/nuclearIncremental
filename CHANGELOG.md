@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Autosave
 - Redid the green sprites
 
+### Changed
+- The image rendering
+
 ## [1.0.0] - 2021-05-23
 ### Added
 - Declared the character encoding of the HTML

@@ -37,3 +37,6 @@
 body, button {
   font-family: monospace;
 }
+img {
+  image-rendering: pixelated;
+}
