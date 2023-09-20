@@ -10,6 +10,4 @@ You can start by picking up coins to get 10 money.
 A single hydrogen cell will cost 10 money and give you 15 money.
 
 ## Credits
-Main Developer: DaveRainbowin
-Artist: DaveRainbowin
 ???: SilverHydra6078
