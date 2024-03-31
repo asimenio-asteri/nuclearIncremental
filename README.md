@@ -3,7 +3,7 @@
 This game is a spin-off of Reactor Incremental. It has more features too.
 
 ## How do I play?
-Go to its website, [here](https://daverainbowin.github.io/nuclearIncremental)
+Go to its website, [here](https://asimenio-asteri.github.io/nuclearIncremental)
 
 ### Starting
 You can start by picking up coins to get 10 money.
